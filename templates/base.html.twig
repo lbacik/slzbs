@@ -6,7 +6,15 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <div style="
+            width: 900px;
+            min-height: 600px;
+            margin: 0 auto;
+            padding: 20px 20px;
+            background-color: #f1f2f3"
+        >
+            {% block body %}{% endblock %}
+        </div>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
