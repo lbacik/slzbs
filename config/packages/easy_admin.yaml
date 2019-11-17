@@ -1,0 +1,32 @@
+#easy_admin:
+#    entities:
+#        # List the entity class name you want to manage
+#        - App\Entity\Product
+#        - App\Entity\Category
+#        - App\Entity\User
+
+easy_admin:
+  entities:
+    StaticPage:
+      class: App\Entity\StaticPage
+      label: 'Strony'
+      list:
+        fields:
+          - id
+          - { property: 'enabled', label: 'aktywna', type: 'toggle' }
+          - { property: 'title', label: 'tytuł' }
+      search:
+        fields:
+          - id
+          - { property: 'enabled', label: 'aktywna', type: 'toggle' }
+          - { property: 'title', label: 'tytuł' }
+      show:
+        fields:
+          - { property: 'title', label: 'tytuł' }
+          - { property: 'enabled', label: 'aktywna', type: 'toggle' }
+          - { property: 'body', label: 'tytuł' }
+      form:
+        fields:
+          - { property: 'title', label: 'tytuł' }
+          - { property: 'enabled', label: 'aktywna' }
+          - { property: 'body', label: 'strona', type: 'text_editor' }
