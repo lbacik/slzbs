@@ -4,28 +4,37 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use DateTime;
+
 class StaticPage
 {
-    /**
-     * @var string
-     */
+    /** @var int */
     private $id;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $title;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $body;
 
+    /** @var boolean */
+    private $enabled;
+
+    /** @var DateTime */
     private $created;
 
+    /** @var DateTime */
     private $updated;
 
-    public function getId(): string
+    public function __construct()
+    {
+        $this->id = -1;
+        $this->title = '';
+        $this->body = '';
+        $this->enabled = true;
+    }
+
+    public function getId(): int
     {
         return $this->id;
     }
@@ -35,7 +44,7 @@ class StaticPage
         return $this->title;
     }
 
-    public function setTitle($title): void
+    public function setTitle(string $title): void
     {
         $this->title = $title;
     }
@@ -45,28 +54,18 @@ class StaticPage
         return $this->body;
     }
 
-    public function setBody($body): void
+    public function setBody(string $body): void
     {
         $this->body = $body;
     }
 
-    public function getCreated()
+    public function getEnabled(): bool
     {
-        return $this->created;
+        return $this->enabled;
     }
 
-    public function setCreated($created): void
+    public function setEnabled(bool $enabled): void
     {
-        $this->created = $created;
-    }
-
-    public function getUpdated()
-    {
-        return $this->updated;
-    }
-
-    public function setUpdated($updated): void
-    {
-        $this->updated = $updated;
+        $this->enabled = $enabled;
     }
 }
