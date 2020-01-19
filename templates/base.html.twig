@@ -6,6 +6,9 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        <div id="menu">
+            {{ render(controller('App\\Controller\\MenuController::menu')) }}
+        </div>
         <div style="
             width: 900px;
             min-height: 600px;

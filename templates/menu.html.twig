@@ -1,0 +1,11 @@
+{% block stylesheet %}
+    <link href="{{ asset('css/menu.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+<ul id="menu">
+{% for item in items.item() %}
+    <li>
+        <a href="{{ absolute_url(item.getUri()) }}">{{ item.getName() }}</a>
+    </li>
+{% endfor %}
+</ul>
