@@ -6,3 +6,5 @@ COPY . /project
 WORKDIR /project
 
 RUN chown -R www-data.www-data var
+
+VOLUME /project/public
