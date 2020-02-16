@@ -10,6 +10,17 @@ easy_admin:
     display_name: true
     name_property_path: 'email'
   entities:
+    Menu:
+      class: App\Entity\MenuItem
+      label: 'Menu'
+      list:
+        fields: ['id', 'name', 'enabled', 'uri']
+      search:
+        fields: ['id', 'name', 'enabled', 'uri']
+      show:
+        fields: ['id', 'name', 'enabled', 'uri']
+      form:
+        fields: ['id', 'name', 'enabled', 'uri']
     StaticPage:
       class: App\Entity\StaticPage
       label: 'Strony'
