@@ -6,6 +6,9 @@
 #        - App\Entity\User
 
 easy_admin:
+  user:
+    display_name: true
+    name_property_path: 'email'
   entities:
     StaticPage:
       class: App\Entity\StaticPage
