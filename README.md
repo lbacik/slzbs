@@ -17,3 +17,6 @@ Please contact me (mail@luka.sh) in case of any question!
 * Stage (update nie jest automatyczny): http://slzbs.luka.sh/
   * panel administratora (wymaga użytkownika z rolą ROLE_ADMIN): http://slzbs.luka.sh/admin
 
+## Środowisko developerskie
+
+Środowiko developerskie: https://github.com/lbacik/slzbs-dev
