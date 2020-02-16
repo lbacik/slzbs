@@ -22,8 +22,8 @@
             </options>
         </field>
 
-        <field name="created" type="datetimetz" nullable="true" />
-        <field name="updated" type="datetimetz" nullable="true" />
+        <field name="created" type="datetime" nullable="true" />
+        <field name="updated" type="datetime" nullable="true" />
 
     </entity>
 
