@@ -7,7 +7,6 @@ namespace App\Tests\Service;
 use App\Entity\StaticPage as StaticPageEntity;
 use App\Service\StaticPage;
 use App\Service\StaticPageRepository;
-use App\ValueObject\Identification;
 use PHPUnit\Framework\TestCase;
 
 class StaticPageTest extends TestCase
