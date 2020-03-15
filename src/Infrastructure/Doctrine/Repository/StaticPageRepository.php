@@ -12,7 +12,7 @@ class StaticPageRepository extends GenericRepository implements StaticPageReposi
     public function get(int $id): ?StaticPageEntity
     {
         $page = $this->getEntityManager()
-            ->find (
+            ->find(
                 StaticPageEntity::class,
                 $id
             );

@@ -19,7 +19,7 @@ abstract class ObjectCollection extends ValueObject
 
     public function item(): iterable
     {
-        foreach($this->getValues()[self::ITEMS] as $item) {
+        foreach ($this->getValues()[self::ITEMS] as $item) {
             yield $item;
         }
     }

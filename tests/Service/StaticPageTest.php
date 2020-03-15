@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class StaticPageTest extends TestCase
 {
-    const ID = 3;
+    private const ID = 3;
 
     /** @var StaticPage */
     private $staticPage;
