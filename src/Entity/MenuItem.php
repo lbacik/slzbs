@@ -8,6 +8,9 @@ use DateTime;
 
 class MenuItem
 {
+    /** @var integer */
+    private $id;
+
     /** @var string */
     private $name;
 
@@ -23,7 +26,17 @@ class MenuItem
     /** @var DateTime */
     private $updated;
 
-    private $id;
+    public function __construct(string $name, string $uri, bool $enable)
+    {
+        $this->name = $name;
+        $this->uri = $uri;
+        $this->enabled = $enable;
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     public function getName(): ?string
     {
@@ -59,10 +72,5 @@ class MenuItem
         $this->enabled = $enabled;
 
         return $this;
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 }
