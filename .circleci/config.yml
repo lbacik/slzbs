@@ -13,7 +13,7 @@ jobs:
       - run: sudo apt-get -y update && sudo apt-get -y install libzip-dev
       - run: sudo docker-php-ext-install zip
       - run: composer install -n
-      - run: bin/phpcs
+      - run: vendor/bin/phpcs
       - run: bin/phpunit
       - save_cache:
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
