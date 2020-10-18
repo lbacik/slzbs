@@ -1,0 +1,19 @@
+
+body {
+    background-image: url('/img/aditya-chinchure-hyN9aU9Tm-c-unsplash.jpg');
+}
+
+header {
+    background-color: #92B6B1;
+}
+
+header #navbarSupportedContent1 ul {
+    margin: auto;
+}
+
+#content {
+    background-color: #B2C9AB;
+    border-bottom-right-radius:2rem !important;
+    border-bottom-left-radius:2rem !important;
+}
+

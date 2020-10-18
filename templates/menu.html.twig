@@ -1,11 +1,24 @@
-{% block stylesheet %}
-    <link href="{{ asset('css/menu.css') }}" rel="stylesheet"/>
-{% endblock %}
 
-<ul id="menu">
-{% for item in items.item() %}
-    <li>
-        <a href="{{ absolute_url(item.getUri()) }}">{{ item.getName() }}</a>
-    </li>
-{% endfor %}
-</ul>
+<nav id="menu" class="container navbar navbar-expand-lg navbar-light light-blue">
+
+    <button class="navbar-toggler toggler-example"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent1"
+            aria-controls="navbarSupportedContent1"
+            aria-expanded="false"
+            aria-label="Toggle navigation"><span class="text-light"><i class="fas fa-bars fa-1x"></i></span></button>
+
+    <!-- Collapsible content -->
+    <div id="navbarSupportedContent1" class="collapse navbar-collapse">
+
+        <ul id="menu" class="navbar-nav mr-auto">
+        {% for item in items.item() %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ absolute_url(item.getUri()) }}">{{ item.getName() }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+
+    </div>
+</nav>
