@@ -26,7 +26,7 @@ class MenuItem
     /** @var DateTime */
     private $updated;
 
-    public function __construct(string $name, string $uri, bool $enable)
+    public function __construct(?string $name = '', ?string $uri = '', ?bool $enable = false)
     {
         $this->name = $name;
         $this->uri = $uri;
@@ -57,7 +57,7 @@ class MenuItem
 
     public function setUri(?string $uri): self
     {
-        $this->url = $uri;
+        $this->uri = $uri;
 
         return $this;
     }

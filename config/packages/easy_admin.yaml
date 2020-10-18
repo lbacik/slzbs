@@ -20,7 +20,11 @@ easy_admin:
       show:
         fields: ['id', 'name', 'enabled', 'uri']
       form:
-        fields: ['id', 'name', 'enabled', 'uri']
+        fields:
+          - { property: 'name', label: 'nazwa' }
+          - { property: 'enabled', label: 'aktywny'}
+          - { property: 'uri', label: 'uri' }
+
     StaticPage:
       class: App\Entity\StaticPage
       label: 'Strony'
