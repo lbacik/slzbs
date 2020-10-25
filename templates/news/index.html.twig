@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Strona główna{% endblock %}
+
+{% block body %}
+    <div id="news" class="container p-0 pt-sm-2 pt-md-5 pb-5">
+        {% for item in news %}
+
+            <div class="pl-1 pl-sm-2 pl-md-5 pr-1 pr-sm-2 pr-md-5">
+                {{ item.content|raw }}
+            </div>
+
+            {% if loop.last == false %}
+                <div class="container m-2 m-sm-3 m-md-5">
+                    <div class="container border-bottom border-secondary col-8"></div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
