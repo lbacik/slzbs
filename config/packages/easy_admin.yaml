@@ -61,3 +61,25 @@ easy_admin:
           - { property: 'date', label: 'data' }
           - { property: 'content', label: 'treść', type: 'text_editor'}
           - { property: 'published', label: 'opublikowany'}
+
+    Tournament:
+      class: App\Entity\Tournament
+      label: Wyniki
+      form:
+        fields:
+          - { type: 'section', label: 'Zawody'}
+          - { property: 'name', label: 'Turniej' }
+          - { property: 'description', label: 'opis'}
+          - { property: 'date', label: 'data' }
+          - { property: 'published', label: 'opublikowany'}
+
+          - { type: 'section', label: 'Wyniki'}
+          -
+            property: 'results'
+            type: 'collection'
+            type_options:
+              label: false
+              entry_type: App\Form\ResultsType
+              by_reference: false
+              allow_delete: true
+              allow_add: true
