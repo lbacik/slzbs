@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wyniki{% endblock %}
+
+{% block body %}
+
+    <table id="tournaments-results" class="table table-borderless table-striped table-hover m-md-4">
+        <thead>
+            <tr>
+                <th scope="col" class="w-25 text-center">Data</th>
+                <th scope="col" class="text-center">Turniej</th>
+                <th scope="col" class="w-25"></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in results %}
+            <tr >
+                <td class="text-center">{{ item.getDate()|date('Y-m-d') }}</td>
+                <td class="text-center">
+                    <div class=" ">{{ item.getName() }}</div>
+                    <div class="text-secondary">{{ item.getDescription() }}</div>
+                </td>
+                <td class="text-center">
+                    {% for resultItem in item.getResults() %}
+                        <a class="" href="{{ absolute_url(resultItem.getLink()) }}">{{ resultItem.getName() }}</a>
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
