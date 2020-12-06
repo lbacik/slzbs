@@ -3,8 +3,35 @@ fos_ck_editor:
   default_config: simple_config
   configs:
     simple_config:
-      toolbar:
-      # ...
+      toolbar: [ ["Source", "-", "Save"], "/", ["Anchor"], "/", ["Maximize"] ]
+    news_config:
+      toolbar: "news_editor"
     advanced_config:
-      toolbar:
-      # ...
+      toolbar: "page_editor"
+  toolbars:
+    configs:
+      news_editor:
+        - ['Image', 'SpecialChar', 'Smiley', 'PageBreak']
+        - "-"
+        - "@full.links"
+        - "-"
+        - "@full.clipboard"
+        - "/"
+        - ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']
+        - "-"
+        - ['TextColor', 'BGColor']
+        - "-"
+        - ['Format', 'Font', 'FontSize']
+
+      page_editor:
+        - ['Image', 'Table', 'HorizontalRule', 'SpecialChar', 'Smiley', 'PageBreak']
+        - "-"
+        - "@full.links"
+        - "-"
+        - "@full.clipboard"
+        - "/"
+        - ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']
+        - "-"
+        - ['TextColor', 'BGColor']
+        - "-"
+        - ['Format', 'Font', 'FontSize']
