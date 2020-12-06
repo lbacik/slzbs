@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "easycorp/easyadmin-bundle": "^2.3",
+        "friendsofsymfony/ckeditor-bundle": "^2.2",
         "lbacik/value-object": "*",
         "lbacik/value-object-illuminate-validation": "*",
         "sensio/framework-extra-bundle": "^5.1",

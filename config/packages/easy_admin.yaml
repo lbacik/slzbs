@@ -1,5 +1,14 @@
 
 easy_admin:
+  design:
+    form_theme:
+      - '@EasyAdmin/form/bootstrap_4.html.twig'
+      - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+    menu:
+      - {entity: 'Menu', icon: 'compass'}
+      - {entity: 'StaticPage', icon: 'file'}
+      - {entity: 'News', icon: 'newspaper'}
+      - {entity: 'Tournament', icon: 'poll'}
   user:
     display_name: true
     name_property_path: 'email'
@@ -41,7 +50,8 @@ easy_admin:
         fields:
           - { property: 'title', label: 'tytuł' }
           - { property: 'enabled', label: 'aktywna' }
-          - { property: 'body', label: 'strona', type: 'text_editor' }
+          - { property: 'body', label: 'strona', type: 'fos_ckeditor',
+                type_options: { config_name: 'advanced_config' }}
 
     News:
       class: App\Entity\News
@@ -59,7 +69,7 @@ easy_admin:
       form:
         fields:
           - { property: 'date', label: 'data' }
-          - { property: 'content', label: 'treść', type: 'text_editor'}
+          - { property: 'content', label: 'treść', type: 'fos_ckeditor', type_options: { config_name: 'advanced_config' }}
           - { property: 'published', label: 'opublikowany'}
 
     Tournament:
