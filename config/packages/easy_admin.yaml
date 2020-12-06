@@ -64,7 +64,7 @@ easy_admin:
       form:
         fields:
           - { property: 'date', label: 'data' }
-          - { property: 'content', label: 'treść', type: 'text_editor'}
+          - { property: 'content', label: 'treść', type: 'fos_ckeditor', type_options: { config_name: 'advanced_config' }}
           - { property: 'published', label: 'opublikowany'}
 
     Tournament:
