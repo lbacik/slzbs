@@ -4,6 +4,11 @@ easy_admin:
     form_theme:
       - '@EasyAdmin/form/bootstrap_4.html.twig'
       - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+    menu:
+      - {entity: 'Menu', icon: 'compass'}
+      - {entity: 'StaticPage', icon: 'file'}
+      - {entity: 'News', icon: 'newspaper'}
+      - {entity: 'Tournament', icon: 'poll'}
   user:
     display_name: true
     name_property_path: 'email'
