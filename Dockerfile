@@ -13,7 +13,7 @@ COPY --from=composer:1.10.15 /usr/bin/composer /usr/bin/composer
 
 RUN composer i \
     && bin/console ckeditor:install \
-    && bin/console assets:install --symlink --relative
+    && bin/console assets:install
 
 FROM php:7-fpm
 
