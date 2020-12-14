@@ -1,0 +1,18 @@
+
+.field-collection .form-widget {
+    flex-basis: auto;
+}
+
+#tournament_results .field-collection-item-row {
+    display: table-row;
+}
+
+#tournament_results .field-collection-item-row .form-group {
+    display: table-cell;
+}
+
+#tournament_results .field-collection-item-row .field-collection-item-action {
+    color: red;
+    display: table-cell;
+    align-content: center;
+}

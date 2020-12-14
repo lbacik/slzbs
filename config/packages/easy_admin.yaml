@@ -9,6 +9,10 @@ easy_admin:
       - {entity: 'StaticPage', icon: 'file'}
       - {entity: 'News', icon: 'newspaper'}
       - {entity: 'Tournament', icon: 'poll'}
+    assets:
+      css:
+        - 'css/ea.css'
+
   user:
     display_name: true
     name_property_path: 'email'
@@ -75,6 +79,13 @@ easy_admin:
     Tournament:
       class: App\Entity\Tournament
       label: Wyniki
+      list:
+        fields:
+          - { property: 'name', label: 'Turniej' }
+          - { property: 'description', label: 'opis' }
+          - { property: 'date', label: 'data' }
+          - { property: 'published', label: 'opublikowany' }
+          - { property: 'results', label: 'wyniki' }
       form:
         fields:
           - { type: 'section', label: 'Zawody'}
