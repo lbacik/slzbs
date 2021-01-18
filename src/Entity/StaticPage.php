@@ -54,9 +54,9 @@ class StaticPage
         return $this->body;
     }
 
-    public function setBody(string $body): void
+    public function setBody(?string $body): void
     {
-        $this->body = $body;
+        $this->body = $body ?? '';
     }
 
     public function getEnabled(): bool

@@ -10,7 +10,7 @@ use App\Infrastructure\ObjectCollection;
 class MenuItemCollection extends ObjectCollection
 {
     protected $keys = [
-        self::ITEMS => 'required|array',
+        self::ITEMS => 'array',
         self::ITEMS . '.*' => 'instance_of:' . MenuItem::class,
     ];
 

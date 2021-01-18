@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\TournamentResult;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,15 @@ class ResultsType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('link')
+            ->add(
+                'link',
+                TextType::class,
+                [
+                    'attr' => [
+                            'size' => 50
+                        ],
+                ]
+            )
             ->add('published')
         ;
     }
