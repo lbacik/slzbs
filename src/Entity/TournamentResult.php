@@ -1,17 +1,52 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use DateTime;
 use DateTimeInterface;
+use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Entity
+ */
 class TournamentResult
 {
+    /**
+     * @ORM\Id()
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
     private int $id;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=false)
+     */
     private string $name;
+
+    /**
+     * @ORM\Column(type="string", length=128, nullable=false)
+     */
     private string $link;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=false, options={"default": false})
+     */
     private bool $published;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
     private DateTimeInterface $created;
+
+    /**
+     * @ORM\ManyToOne(
+     *     targetEntity="App\Entity\Tournament",
+     *     inversedBy="results"
+     * )
+     * @ORM\JoinColumn(name="tournament_id", referencedColumnName="id")
+     */
     private Tournament $tournament;
 
     public function __construct()

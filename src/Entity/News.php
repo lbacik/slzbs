@@ -1,22 +1,48 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use DateTime;
 use DateTimeInterface;
+use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Entity
+ */
 class News
 {
+    /**
+     * @ORM\Id()
+     * @ORM\Column(type="guid")
+     * @ORM\GeneratedValue(strategy="UUID")
+     */
     private ?string $id;
 
+    /**
+     * @ORM\Column(type="text", nullable=false)
+     */
     private string $content;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=false, options={"default": false})
+     */
     private bool $published;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
     private DateTimeInterface $date;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
     private DateTimeInterface $created;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
     private DateTimeInterface $updated;
 
     public function __construct(?string $content = '', ?bool $published = false)

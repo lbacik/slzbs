@@ -5,25 +5,43 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use DateTime;
+use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Entity
+ */
 class StaticPage
 {
-    /** @var int */
+    /**
+     * @ORM\Id()
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
     private $id;
 
-    /** @var string */
+    /**
+     * @ORM\Column(type="string", length=128, nullable=false, options={"default": ""})
+     */
     private $title;
 
-    /** @var string */
+    /**
+     * @ORM\Column(type="text")
+     */
     private $body;
 
-    /** @var boolean */
+    /**
+     * @ORM\Column(type="boolean", nullable=false, options={"default": false})
+     */
     private $enabled;
 
-    /** @var DateTime */
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
     private $created;
 
-    /** @var DateTime */
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
     private $updated;
 
     public function __construct()
