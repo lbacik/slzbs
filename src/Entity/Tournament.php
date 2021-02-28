@@ -8,16 +8,57 @@ use DateTime;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Entity
+ */
 class Tournament
 {
+    /**
+     * @ORM\Id()
+     * @ORM\Column(type="guid")
+     * @ORM\GeneratedValue(strategy="UUID")
+     */
     private ?string $id = '';
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=false)
+     */
     private string $name;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private ?string $description = '';
+
+    /**
+     * @ORM\Column(type="boolean", nullable=false, options={"default": false})
+     */
     private bool $published;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
     private DateTimeInterface $date;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
     private DateTimeInterface $created;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
     private DateTimeInterface $updated;
+
+    /**
+     * @ORM\OneToMany(
+     *     targetEntity="App\Entity\TournamentResult",
+     *     mappedBy="tournament",
+     *     cascade="remove"
+     * )
+     */
     private Collection $results;
 
     public function __construct()

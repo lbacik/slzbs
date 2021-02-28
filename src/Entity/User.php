@@ -1,27 +1,48 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Entity;
 
 use DateTime;
+use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+/**
+ * @ORM\Entity
+ */
 class User implements UserInterface
 {
-    /** @var string */
+    /**
+     * @ORM\Id()
+     * @ORM\Column(type="guid")
+     * @ORM\GeneratedValue(strategy="UUID")
+     */
     private $id;
 
-    /** @var string */
+    /**
+     * @ORM\Column(type="string", length=128, nullable=false, unique=true)
+     */
     private $email;
 
+    /**
+     * @ORM\Column(type="json")
+     */
     private $roles = [];
 
-    /** @var string The hashed password */
+    /**
+     * @ORM\Column(type="string", nullable=false)
+     */
     private $password;
 
-    /** @var DateTime */
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
     private $created;
 
-    /** @var DateTime */
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
     private $updated;
 
     public function getId(): ?int

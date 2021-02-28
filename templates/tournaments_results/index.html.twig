@@ -4,7 +4,11 @@
 
 {% block body %}
 
-    <table id="tournaments-results" class="table table-borderless table-striped table-hover m-md-4">
+    {% if paginatorShow == true %}
+        {{  include("utils/paginator.html.twig")  }}
+    {% endif %}
+
+    <table id="tournaments-results" class="table table-borderless table-striped table-hover">
         <thead>
             <tr>
                 <th scope="col" class="w-25 text-center">Data</th>
@@ -29,5 +33,9 @@
         {% endfor %}
         </tbody>
     </table>
+
+    {% if paginatorShow == true %}
+        {{  include("utils/paginator.html.twig")  }}
+    {% endif %}
 
 {% endblock %}

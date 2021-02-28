@@ -1,0 +1,36 @@
+<div class="m-2 p-1 text-right">
+    {% if paginator.page > 1 %}
+        <a href="{{ [paginator.uri, 'page=%s'|format(paginator.page - 1)]|join('&') }}"><</a>
+        <a href="{{ [paginator.uri, 'page=%s'|format(1)]|join('&') }}">1</a>
+    {% else %}
+        <
+    {% endif %}
+
+    {%  for i in 1..paginator.steps %}
+        {% set step = paginator.page - loop.revindex %}
+        {% if step > 1 and step < paginator.page - (paginator.steps - 1) %}
+            ...
+        {% elseif step > 1 %}
+            <a href="{{ [paginator.uri, 'page=%s'|format(step)]|join('&') }}">{{ step }}</a>
+        {% endif %}
+    {% endfor %}
+
+    <strong>{{ paginator.page }}</strong>
+
+    {%  for i in 1..paginator.steps %}
+        {% set step = paginator.page + i %}
+        {% if step < paginator.totalPages and step > paginator.page + (paginator.steps - 1) %}
+            ...
+        {% elseif step < paginator.totalPages %}
+            <a href="{{ [paginator.uri, 'page=%s'|format(step)]|join('&') }}">{{ step }}</a>
+        {% endif %}
+
+    {% endfor %}
+
+    {% if paginator.page < paginator.totalPages %}
+        <a href="{{ [paginator.uri, 'page=%s'|format(paginator.totalPages)]|join('&') }}">{{ paginator.totalPages }}</a>
+        <a href="{{ [paginator.uri, 'page=%s'|format(paginator.page + 1)]|join('&') }}">></a>
+    {% else %}
+        >
+    {% endif %}
+</div>
