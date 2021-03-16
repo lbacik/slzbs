@@ -43,7 +43,8 @@ class TournamentResult
     /**
      * @ORM\ManyToOne(
      *     targetEntity="App\Entity\Tournament",
-     *     inversedBy="results"
+     *     inversedBy="results",
+     *     cascade={"persist"}
      * )
      * @ORM\JoinColumn(name="tournament_id", referencedColumnName="id")
      */

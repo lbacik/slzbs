@@ -3,14 +3,22 @@ doctrine:
         default_connection: mysql
         connections:
             mysql:
-                # configure these for your database server
+                driver: 'pdo_mysql'
+                #server_version: '5.7'
+                charset: utf8mb4
+                default_table_options:
+                    charset: utf8mb4
+                    collate: utf8mb4_unicode_ci
+                url: '%env(resolve:DATABASE_URL)%'
+
+            mysqlLegacy:
                 driver: 'pdo_mysql'
                 server_version: '5.7'
                 charset: utf8mb4
                 default_table_options:
                     charset: utf8mb4
                     collate: utf8mb4_unicode_ci
-                url: '%env(resolve:DATABASE_URL)%'
+                url: '%env(resolve:LEGACY_DATABASE_URL)%'
 
             sqlite:
                 url: '%env(resolve:DATABASE_SQLITE_URL)%'
