@@ -21,6 +21,9 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 class MigrateLegacyDBCommand extends Command
 {
+    private const LEGACY_RESULT_CATEGORIES = ['wyniki', 'protokoly', 'historie', 'pdf'];
+    private const RESULT_URL_PREFIX = 'https://slzbs.pl/protokoly';
+
     protected static $defaultName = 'migrate:legacyDB';
 
     private ContainerInterface $container;
@@ -147,12 +150,15 @@ class MigrateLegacyDBCommand extends Command
 
     private function updateTournamentResults(Tournament $tournament, array $data): void
     {
-        $results = ['wyniki', 'protokoly', 'historie', 'pdf'];
-        foreach ($results as $name) {
+        foreach (self::LEGACY_RESULT_CATEGORIES as $name) {
             if (empty($data[$name]) === false) {
+                $link = substr($data[$name], 0, 1) === '/'
+                    ? self::RESULT_URL_PREFIX . $data[$name]
+                    : self::RESULT_URL_PREFIX . '/' . $data[$name];
+
                 $tournamentResult = new TournamentResult();
                 $tournamentResult->setName($name);
-                $tournamentResult->setLink($data[$name]);
+                $tournamentResult->setLink($link);
                 $tournamentResult->setPublished(true);
                 $this->em->persist($tournamentResult);
 
