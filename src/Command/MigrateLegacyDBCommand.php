@@ -22,7 +22,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 class MigrateLegacyDBCommand extends Command
 {
     private const LEGACY_RESULT_CATEGORIES = ['wyniki', 'protokoly', 'historie', 'pdf'];
-    private const RESULT_URL_PREFIX = 'https://slzbs.pl/protokoly';
+    private const RESULT_URL_PREFIX = 'https://v2.slzbs.pl/protokoly';
 
     protected static $defaultName = 'migrate:legacyDB';
 
@@ -116,7 +116,11 @@ class MigrateLegacyDBCommand extends Command
     private function createEntityNews(array $data): News
     {
         $news = new News(
-            $this->concatenate($data['title'], $data['text1'], $data['text2']),
+            $this->concatenate(
+                iconv("ISO-8859-2", "UTF-8", $data['title']),
+                iconv("ISO-8859-2", "UTF-8", $data['text1']),
+                iconv("ISO-8859-2", "UTF-8", $data['text2'])
+            ),
             true
         );
 
@@ -141,8 +145,8 @@ class MigrateLegacyDBCommand extends Command
     private function createEntityTournament(array $data): Tournament
     {
         $tournament = new Tournament();
-        $tournament->setName($data['miasto']);
-        $tournament->setDescription($data['nazwa']);
+        $tournament->setName(iconv("ISO-8859-2", "UTF-8", $data['miasto']));
+        $tournament->setDescription(iconv("ISO-8859-2", "UTF-8", $data['nazwa']));
         $tournament->setDate(DateTime::createFromFormat('Y-m-d', $data['date']));
         $tournament->setPublished(true);
         return $tournament;
