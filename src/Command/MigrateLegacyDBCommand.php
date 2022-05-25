@@ -22,7 +22,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 class MigrateLegacyDBCommand extends Command
 {
     private const LEGACY_RESULT_CATEGORIES = ['wyniki', 'protokoly', 'historie', 'pdf'];
-    private const RESULT_URL_PREFIX = 'https://v2.slzbs.pl/protokoly';
+    private const RESULT_URL_PREFIX = 'https://slzbs.pl/protokoly';
 
     protected static $defaultName = 'migrate:legacyDB';
 
