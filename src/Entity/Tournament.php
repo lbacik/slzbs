@@ -56,7 +56,7 @@ class Tournament
      * @ORM\OneToMany(
      *     targetEntity="App\Entity\TournamentResult",
      *     mappedBy="tournament",
-     *     cascade="remove"
+     *     cascade={"persist", "remove"}
      * )
      */
     private Collection $results;
