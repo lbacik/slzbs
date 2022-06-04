@@ -17,3 +17,6 @@ header #navbarSupportedContent1 ul {
     border-bottom-left-radius:2rem !important;
 }
 
+footer {
+    min-height: 190px;
+}
